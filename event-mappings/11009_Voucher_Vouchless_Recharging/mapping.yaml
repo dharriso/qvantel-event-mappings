@@ -1,0 +1,99 @@
+event_name: "RechargeEvent"
+version: 1
+description: "Mapping for Voucher Redemption/Recharge Events from raw input."
+owner: "Product Manager [Name]"
+
+# --- MAPPINGS ---
+mappings:
+  # ----------------------------------------------------------------------
+  # TOP LEVEL FIELDS
+  # ----------------------------------------------------------------------
+  - source: .eid
+    target: "id"
+    transform: string()
+  - target: "entity-type"
+    value: "recharge-events"
+    type: "constant"
+  - target: "action"
+    value: "CreateOrUpdate"
+    type: "constant"
+  - source: .oet
+    target: "timestamp"
+    transform: direct_copy # Original Event Time
+
+  # ----------------------------------------------------------------------
+  # PAYLOAD / DATA / ATTRIBUTES
+  # ----------------------------------------------------------------------
+  - source: .eid
+    target: "payload.data.id"
+    transform: string()
+  - target: "payload.data.type"
+    value: "recharge-events"
+    type: "constant"
+  - source: .cet
+    target: "payload.data.attributes.created-at"
+    transform: direct_copy # Central Event Time
+  - source: .ec
+    target: "payload.data.attributes.event-status"
+    transform: errorCode() # Custom mapping function for status
+  - target: "payload.data.attributes.external-reference-id"
+    value: "TMF TBD EventIfo maybe" # Note: This looks like a placeholder that should be fixed/verified
+    type: "constant"
+  - source: .ak
+    target: "payload.data.attributes.primary-id"
+    transform: direct_copy
+  - source: .irr
+    target: "payload.data.attributes.source"
+    transform: recharge_channel_lookup # Custom function for 'URecharging.In.RechargeChannel' sum
+
+  # ----------------------------------------------------------------------
+  # CHARACTERISTICS (VOUCHER LOOKUPS)
+  # ----------------------------------------------------------------------
+  - source: .irr
+    target: "payload.data.attributes.characteristics.voucher-code"
+    transform: voucher_lookup('RechargingParameters.VoucherSerialNo') # Custom function to extract value from IRR array
+
+  # ----------------------------------------------------------------------
+  # RECHARGE TYPE / PAYMENT METHOD (VOUCHER ID LOOKUPS)
+  # ----------------------------------------------------------------------
+  - source: .irr
+    target: "payload.data.attributes.recharge-type"
+    transform: rechargeType_lookup('RechargingParameters.VoucherID') # Custom function to extract/map based on VoucherID
+  - source: .irr
+    target: "payload.data.attributes.payment-method"
+    transform: paymentMethod_lookup('RechargingParameters.VoucherID') # Custom function to extract/map based on VoucherID
+
+  # ----------------------------------------------------------------------
+  # RELATIONSHIPS
+  # ----------------------------------------------------------------------
+  - source: .ocid
+    target: "payload.data.relationships.target.data.id"
+    transform: direct_copy
+  - target: "payload.data.relationships.target.data.type"
+    value: "agreements"
+    type: "constant"
+
+  # ----------------------------------------------------------------------
+  # RECHARGE AMOUNT (COMPLEX CALCULATION)
+  # ----------------------------------------------------------------------
+  - source: .irr
+    target: "payload.data.attributes.recharge-amount.tax-included-amount"
+    transform: calculate_recharge_amount # Custom function to sum and divide URecharging.In.AmountOfUnits
+    details:
+      source_field: "URecharging.In.AmountOfUnits"
+      divisor: 100
+      currency: "EUR"
+  - source: .err
+    target: "payload.data.attributes.recharge-amount.tax-amounts.0"
+    transform: calculate_tax_details # Custom function to sum TaxOfChargedPrice and TaxInfo
+    details:
+      tax_amount_field: "cpp1.TaxOfChargedPrice"
+      tax_rate_field: "cpp1.TaxInfo"
+      currency: "EUR"
+
+  # ----------------------------------------------------------------------
+  # NON-MONETARY (EMPTY ARRAY)
+  # ----------------------------------------------------------------------
+  - target: "payload.data.attributes.recharge-non-monetary-amounts"
+    value: [ ]
+    type: "constant" # Explicitly setting an empty array

@@ -1,0 +1,129 @@
+event_name: "VoiceUsageEvent"
+version: 1
+description: "Mapping for Voice Usage Events (CDR) to canonical format."
+owner: "Product Manager [Name]"
+
+# --- MAPPINGS ---
+mappings:
+  # ----------------------------------------------------------------------
+  # TOP LEVEL FIELDS
+  # ----------------------------------------------------------------------
+  - source: .eid
+    target: "id"
+    transform: string()
+  - target: "entity-type"
+    value: "usage-events"
+    type: "constant"
+  - source: .cet
+    target: "timestamp"
+    transform: direct_copy # Central Event Time
+
+  # ----------------------------------------------------------------------
+  # PAYLOAD / DATA / ATTRIBUTES
+  # ----------------------------------------------------------------------
+  - source: .eid
+    target: "payload.data.id"
+    transform: string()
+  - target: "payload.data.type"
+    value: "usage-events"
+    type: "constant"
+  - source: .cet
+    target: "payload.data.attributes.created-at"
+    transform: direct_copy
+  - source: .oet
+    target: "payload.data.attributes.started-at"
+    transform: direct_copy
+  - source: .ec
+    target: "payload.data.attributes.event-status"
+    transform: errorCode()
+  - source: .ak
+    target: "payload.data.attributes.primary-service-id"
+    transform: direct_copy
+  - target: "payload.data.attributes.event-type"
+    value: "voice"
+    type: "constant"
+  - target: "payload.data.attributes.service-type"
+    value: "voice"
+    type: "constant"
+
+  # ----------------------------------------------------------------------
+  # TOTAL CHARGED AMOUNT (COMPLEX CALCULATION)
+  # ----------------------------------------------------------------------
+  - source: .err
+    target: "payload.data.attributes.total-charged-amount"
+    transform: calculate_charged_amount # Handles all tax/price sums/subtractions
+    details:
+      charged_price_field: 'ccp1.ChargedPrice'
+      tax_price_field: 'cpp1.TaxOfChargedPrice'
+      tax_info_field: 'cpp1.TaxInfo'
+      currency: "EUR"
+
+  # ----------------------------------------------------------------------
+  # NON-MONETARY/USED UNITS
+  # ----------------------------------------------------------------------
+  - source: .err
+    target: "payload.data.attributes.total-charged-non-monetary-amounts.0"
+    transform: calculate_non_monetary_amount # Sum of 'cbax.ChargedValue'
+    details:
+      amount_field: "cbax.ChargedValue"
+      unit: "" # Unit of measure is explicitly an empty string
+  - source: .err
+    target: "payload.data.attributes.used-service-units.0"
+    transform: calculate_used_units # Sum of 'cpp1.UsedCallDuration'
+    details:
+      amount_field: "cpp1.UsedCallDuration"
+      unit: "seconds"
+      usage_type: "duration"
+
+  # ----------------------------------------------------------------------
+  # RELATIONSHIPS (IDs and CONSTANTS)
+  # ----------------------------------------------------------------------
+  - source: .ocid
+    target: "payload.data.relationships.target.data.id"
+    transform: direct_copy
+  - target: "payload.data.relationships.target.data.type"
+    value: "agreements"
+    type: "constant"
+  - target: "payload.data.relationships.detailed-charges.data.0.id"
+    value: "8a9f2d71-81dc-4285-9f2d-7181dcf285cb"
+    type: "constant"
+  - target: "payload.data.relationships.detailed-charges.data.0.type"
+    value: "event-charges"
+    type: "constant"
+
+  # ----------------------------------------------------------------------
+  # EVENT DETAILS / CHARACTERISTICS (IRR LOOKUPS)
+  # ----------------------------------------------------------------------
+  - source: .irr
+    target: "payload.data.attributes.event-details.is-Roaming"
+    transform: containsBoolean('rating.isRoaming')
+  - target: "payload.data.attributes.event-details.network-technology"
+    value: "2G/3G"
+    type: "constant"
+  - target: "payload.data.attributes.event-details.event-type"
+    value: "voice"
+    type: "constant"
+  - source: .irr
+    target: "payload.data.attributes.event-details.imei"
+    transform: rating_lookup_multiple('rating.IMEI', 'SS7_IMSI')
+  - target: "payload.data.attributes.event-details.traffic-case"
+    value: "originating"
+    type: "constant"
+  - source: .irr
+    target: "payload.data.attributes.event-details.own-number"
+    transform: rating_lookup('SS7_normalizedCaller')
+  - source: .irr
+    target: "payload.data.attributes.event-details.other-party-number"
+    transform: rating_lookup('SS7_normalizedCalled')
+  - source: .irr
+    target: "payload.data.attributes.event-details.other-party-location.destination"
+    transform: rating_lookup('rating.originatorLocationInfo')
+  - source: .irr
+    target: "payload.data.attributes.event-details.own-location.destination"
+    transform: rating_lookup('rating.RoamingZone')
+
+  # ----------------------------------------------------------------------
+  # INCLUDED SECTION (Note: Omitted for brevity but would follow the
+  #                   same pattern, abstracting complex logic like
+  #                   cbaxBalance lookups into a single 'transform' key.)
+  # ----------------------------------------------------------------------

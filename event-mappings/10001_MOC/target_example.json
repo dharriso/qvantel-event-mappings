@@ -1,0 +1,195 @@
+{
+	"id": "978a4e15-ba6b-4283-8a4e-15ba6bb283ff",
+	"entity-type": "usage-events",
+	"action": "CreateOrUpdate",
+	"timestamp": "2025-09-28T12:05:21.420Z",
+	"payload": {
+		"data": {
+			"id": "978a4e15-ba6b-4283-8a4e-15ba6bb283ff",
+			"type": "usage-events",
+			"relationships": {
+				"target": {
+					"data": {
+						"id": "2f8759a8-7e25-4127-b3d4-0c49318b4cd2",
+						"type": "agreements"
+					}
+				},
+				"detailed-charges": {
+					"data": [
+						{
+							"id": "8a9f2d71-81dc-4285-9f2d-7181dcf285cb",
+							"type": "event-charges"
+						}
+					]
+				}
+			},
+			"meta": {
+				"brand": "Lebara"
+			},
+			"attributes": {
+				"created-at": "2025-09-28T11:57:52.000Z",
+				"started-at": "2025-09-28T11:57:52.000Z",
+				"primary-service-id": "602475408",
+				"event-type": "voice",
+				"service-type": "voice",
+				"total-charged-amount": {
+					"tax-free-amount": {
+						"amount": 0,
+						"currency": "EUR"
+					},
+					"tax-included-amount": {
+						"amount": "0.00",
+						"currency": "EUR"
+					},
+					"tax-amounts": [
+						{
+							"tax-amount": {
+								"amount": "0.00",
+								"currency": "EUR"
+							},
+							"tax-rate": 21
+						}
+					]
+				},
+				"total-charged-non-monetary-amounts": [
+					{
+						"amount": 41,
+						"unit-of-measure": "seconds"
+					}
+				],
+				"used-service-units": [
+					{
+						"amount": 41,
+						"unit-of-measure": "seconds",
+						"usage-type": "duration"
+					}
+				],
+				"event-details": {
+					"meta": {
+						"type": "call-event-details",
+						"brand": "Lebara"
+					},
+					"event-type": "voice",
+					"characteristics": {
+						"original-cdr-id": "mtas411.ims.mnc004.mcc214.3gppnetwork.org;409563;958418471;50397;89;1;sip:+34602475408@ims.mnc004.mcc214.3gppnetwork.org",
+						"call-case": "BT101"
+					},
+					"imei": "865167070194160F",
+					"traffic-case": "originating",
+					"own-number": "602475408",
+					"other-party-number": "681251610",
+					"other-party-location": {
+						"destination": "Billable traffic from Yoigo in own Yoigo network to other Spanish mobile."
+					},
+					"own-location": {
+						"destination": "Spain",
+						"mobile-country-code": "214",
+						"mobile-network-code": "03",
+						"location-area-identification": "2140308B",
+						"cell-global-identification": "2140308B20C5B000"
+					}
+				}
+			}
+		},
+		"included": [
+			{
+				"id": "8a9f2d71-81dc-4285-9f2d-7181dcf285cb",
+				"type": "event-charges",
+				"allowMultipleBalances": false,
+				"meta": {
+					"brand": "Lebara"
+				},
+				"attributes": {
+					"charge-type": "charge",
+					"charged-non-monetary-amounts": [
+						{
+							"amount": 41,
+							"unit-of-measure": "seconds"
+						}
+					],
+					"charged-amount": {
+						"tax-free-amount": {
+							"amount": 0,
+							"currency": "EUR"
+						}
+					},
+					"charged-units": [
+						{
+							"amount": 41,
+							"unit-of-measure": "seconds",
+							"usage-type": "duration"
+						}
+					]
+				},
+				"relationships": {
+					"product": {
+						"data": {
+							"id": "b215d430-9ada-4f41-919c-41637a7cbaea",
+							"type": "products"
+						}
+					},
+					"product-offering": {
+						"data": {
+							"id": "PO_PLAN_TODO_INCLUIDO_10_Lebara",
+							"type": "product-offerings"
+						}
+					},
+					"affected-balances": {
+						"data": [
+							{
+								"id": "S@2f8759a8-7e25-4127-b3d4-0c49318b4cd2@591002@P@774",
+								"type": "charging-balances"
+							}
+						]
+					},
+					"charging-balance-changes": {
+						"data": [
+							{
+								"id": "c0f7b14f-0538-4210-b7b1-4f0538d21064",
+								"type": "charging-balance-changes"
+							}
+						]
+					},
+					"event": {
+						"data": {
+							"id": "978a4e15-ba6b-4283-8a4e-15ba6bb283ff",
+							"type": "usage-events"
+						}
+					}
+				}
+			},
+			{
+				"id": "c0f7b14f-0538-4210-b7b1-4f0538d21064",
+				"type": "charging-balance-changes",
+				"meta": {
+					"brand": "Lebara"
+				},
+				"attributes": {
+					"changed-at": "2025-09-28T11:57:52.000Z",
+					"change": -41,
+					"value-after": 299638
+				},
+				"relationships": {
+					"source": {
+						"data": {
+							"id": "8a9f2d71-81dc-4285-9f2d-7181dcf285cb",
+							"type": "event-charges"
+						}
+					},
+					"target": {
+						"data": {
+							"id": "S@2f8759a8-7e25-4127-b3d4-0c49318b4cd2@591002@P@774",
+							"type": "charging-balances"
+						}
+					}
+				}
+			}
+		]
+	},
+	"source": "flex/cdr-processor",
+	"version": "8.6.0",
+	"context": {
+		"X-Trace-Token": "5cd5b7c4-2d8b-40d8-95b7-c42d8b30d8ad"
+	},
+	"parallelization-id": "602475408"
+}
