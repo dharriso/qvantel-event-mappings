@@ -19,8 +19,10 @@ The old process of using Google Sheets for mapping definitions is now considered
 ## Directory Structure
 
 Each directory represents a unique Event Type (e.g., `[Event ID]_[Event Name]`).
+```text
 [Event ID]_[Event Name]/
 ├── mapping.yaml          # The Source of Truth: Source/Target/Transform definition.
 ├── source_example.json   # A sample of the RAW incoming event.
 ├── target_example.json   # The expected transformed output for testing.
 └── README.md             # Specific notes, custom functions, and links for this event.
+```
