@@ -14,7 +14,7 @@ The old process of using Google Sheets for mapping definitions is now considered
 4.  **Open a Pull Request (PR):**
     * **Crucially:** The PR description **must** include the "What" and the "Why" of the change.
     * Require review from the R&D Engineer (for technical validation) and the Product Manager (for business validation).
-5.  **Merge:** Upon approval, the change is merged, and the automated CI/CD pipeline generates and deploys the new JSLT.
+5.  **Merge:** Upon approval, the change is merged.
 
 ## Directory Structure
 
