@@ -1,0 +1,204 @@
+{
+	"tid": 4,
+	"uid": 2939271,
+	"eid": 469918,
+	"ak": "N/A",
+	"akt": -1,
+	"ocid": "491713101015",
+	"rcid": "491713101015",
+	"rcidh": 101,
+	"et": 11009,
+	"oet": "2025-10-07T11:45:12Z",
+	"cet": "2025-10-07T11:45:12.521Z",
+	"eet": "2025-10-07T11:45:12Z",
+	"ecid": -6870970324562149036,
+	"bcid": 0,
+	"bpid": 0,
+	"ret": "urecharging",
+	"irr": [
+		{
+			"name": "Customer.ROP.s_OfferId",
+			"value": "200_005_0042"
+		},
+		{
+			"name": "OnTouchHandling.LogInfo",
+			"value": "0"
+		},
+		{
+			"name": "Event.FarmNodeId",
+			"value": "ocernd01-ocs5"
+		},
+		{
+			"name": "Event.ProcessId",
+			"value": "SmafHttp_82"
+		},
+		{
+			"name": "Event.ContextId",
+			"value": "a0a568e4ce39015b"
+		},
+		{
+			"name": "LogicProcessing.LogInfo",
+			"value": "142,1121400"
+		},
+		{
+			"name": "wmca.EventOrigin",
+			"value": "0"
+		},
+		{
+			"name": "Customer.User.IMSI",
+			"value": ""
+		},
+		{
+			"name": "Customer.User.ServiceProviderId",
+			"value": "1"
+		},
+		{
+			"name": "ExternalClientUserName",
+			"value": "network_operator"
+		},
+		{
+			"name": "ExternalClientIpAddress",
+			"value": "10.128.0.1"
+		},
+		{
+			"name": "ExternalClientIfType",
+			"value": "SOAP"
+		},
+		{
+			"name": "URecharging.In.AmountOfUnits",
+			"value": "2000"
+		},
+		{
+			"name": "URecharging.In.RechargeChannel",
+			"value": "3"
+		},
+		{
+			"name": "URecharging.In.ChargeCode",
+			"value": "1123999"
+		},
+		{
+			"name": "URecharging.In.EventName",
+			"value": "RC100"
+		},
+		{
+			"name": "URecharging.Out.RechargedBalances_0",
+			"value": ":myROP.OnPeakAccountID|2000|12000"
+		},
+		{
+			"name": "URecharging.Out.ResponseResult",
+			"value": "OK"
+		},
+		{
+			"name": "RechargingParameters.ExpiryDateExtensionMode",
+			"value": "0"
+		},
+		{
+			"name": "RechargingParameters.ExpiryDateExtension",
+			"value": "10"
+		},
+		{
+			"name": "RechargingParameters.RechargeChannel",
+			"value": "3"
+		},
+		{
+			"name": "RechargingParameters.StornoId",
+			"value": "-6870970324562149036"
+		}
+	],
+	"eri": [
+		{
+			"name": "ct",
+			"value": "7"
+		}
+	],
+	"err": [
+		{
+			"name": "htz",
+			"value": "1"
+		},
+		{
+			"name": "cbax.BalanceName",
+			"value": ":myROP.OnPeakAccountID"
+		},
+		{
+			"name": "cbax.ChargedValue",
+			"value": "-2000"
+		},
+		{
+			"name": "cbax.NewBalance",
+			"value": "12000"
+		},
+		{
+			"name": "cbax.ExpiryDate",
+			"value": "Wed Oct 07 13:45:06 GMT 2026"
+		},
+		{
+			"name": "cbax.CreditLimit",
+			"value": "0"
+		},
+		{
+			"name": "cpp1.ChargeCode",
+			"value": "1123999"
+		},
+		{
+			"name": "cpp1.ChargeType",
+			"value": "1"
+		},
+		{
+			"name": "cpp1.ChargedPriceUnitType",
+			"value": "1"
+		},
+		{
+			"name": "cpp1.ChargedPrice",
+			"value": "-2000"
+		},
+		{
+			"name": "cpp1.ChargedSplitPrices",
+			"value": "-2000"
+		},
+		{
+			"name": "cpp1.TaxInfo",
+			"value": "0"
+		},
+		{
+			"name": "cpp1.TaxOfChargedPrice",
+			"value": "0"
+		},
+		{
+			"name": "red",
+			"value": "Sat Oct 17 13:45:06 GMT 2026"
+		},
+		{
+			"name": "rme",
+			"value": "Mon Nov 16 13:45:06 GMT 2026"
+		},
+		{
+			"name": "ede",
+			"value": "10"
+		},
+		{
+			"name": "edm",
+			"value": "0"
+		},
+		{
+			"name": "gde",
+			"value": "40"
+		},
+		{
+			"name": "pgd",
+			"value": "Thu Dec 31 13:45:06 GMT 2026"
+		},
+		{
+			"name": "pge",
+			"value": "20819"
+		},
+		{
+			"name": "dad",
+			"value": "Wed Mar 31 13:45:06 GMT 2027"
+		},
+		{
+			"name": "dae",
+			"value": "175"
+		}
+	]
+}

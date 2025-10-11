@@ -1,0 +1,143 @@
+{
+	"id": "46a3c7b7-d983-4127-a3c7-b7d983c1275d",
+	"action": "CreateOrUpdate",
+	"timestamp": "2025-09-22T09:12:22Z",
+	"entity-type": "one-time-charge-events",
+	"version": "8.6.0",
+	"source": "Event-Router",
+	"context": {},
+	"payload": {
+		"data": {
+			"type": "one-time-charge-events",
+			"id": "46a3c7b7-d983-4127-a3c7-b7d983c1275d",
+			"attributes": {
+				"created-at": "2025-09-22T09:12:22Z",
+				"event-type": "purchase-premium-content",
+				"primary-id": "631553357",
+				"total-charged-amount": {
+					"tax-included-amount": {
+						"amount": 0.01,
+						"currency": "EUR"
+					},
+					"tax-free-amount": {
+						"amount": 0.01,
+						"currency": "EUR"
+					},
+					"tax-amounts": [
+						{
+							"tax-amount": {
+								"amount": 0,
+								"currency": "EUR"
+							},
+							"tax-rate": 21
+						}
+					]
+				},
+				"total-charged-non-monetary-amounts": [
+				{"amount": 1000, 
+				"unit-of-measure": "hours"}
+				]
+			},
+			"relationships": {
+				"detailed-charges": {
+					"data": [
+						{
+							"type": "fee-charges",
+							"id": "b1c56560-7817-4059-8565-607817005991"
+						}
+					]
+				},
+				"target": {
+					"data": {
+						"type": "agreements",
+						"id": "4c767ca9-f800-4ea1-9390-83de63dcee33"
+					}
+				}
+			}
+		},
+		"included": [
+			{
+				"type": "fee-charges",
+				"id": "b1c56560-7817-4059-8565-607817005991",
+				"attributes": {
+					"charged-amount": {
+						"tax-included-amount": {
+							"amount": 0.01,
+							"currency": "EUR"
+						},
+						"tax-free-amount": {
+							"amount": 0.01,
+							"currency": "EUR"
+						},
+						"tax-amounts": [
+							{
+								"tax-amount": {
+									"amount": 0,
+									"currency": "EUR"
+								},
+								"tax-rate": 21
+							}
+						]
+					},
+					"charged-non-monetary-amount": [],
+					"created-at": "2025-09-22T09:12:22Z",
+					"charge-type": "charge",
+					"additional-information": "Recobro Parcial"
+				},
+				"relationships": {
+					"affected-balances": {
+						"data": [
+							{
+								"type": "charging-balances",
+								"id": "S@4c767ca9-f800-4ea1-9390-83de63dcee33@100000"
+							}
+						]
+					},
+					"charging-balance-changes": {
+						"data": [
+							{
+								"type": "charging-balance-changes",
+								"id": "370adb22-4b44-47c1-8adb-224b4467c1a1"
+							}
+						]
+					},
+					"event": {
+						"data": {
+							"type": "one-time-charge-events",
+							"id": "46a3c7b7-d983-4127-a3c7-b7d983c1275d"
+						}
+					},
+					"product-offering": {
+						"data": {
+							"type": "product-offerings",
+							"id": "PO_Premium_Service_Events"
+						}
+					}
+				}
+			},
+			{
+				"type": "charging-balance-changes",
+				"id": "370adb22-4b44-47c1-8adb-224b4467c1a1",
+				"attributes": {
+					"change": -0.01,
+					"changed-at": "2025-09-22T09:12:22Z",
+					"value-after": 0
+				},
+				"relationships": {
+					"source": {
+						"data": {
+							"type": "fee-charges",
+							"id": "b1c56560-7817-4059-8565-607817005991"
+						}
+					},
+					"target": {
+						"data": {
+							"type": "charging-balances",
+							"id": "S@4c767ca9-f800-4ea1-9390-83de63dcee33@100000"
+						}
+					}
+				}
+			}
+		]
+	}
+}

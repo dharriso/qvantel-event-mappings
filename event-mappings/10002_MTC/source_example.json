@@ -1,0 +1,324 @@
+{
+	"tid": 3,
+	"uid": 2939266,
+	"eid": 466421,
+	"ak": "4917131010040",
+	"akt": 0,
+	"ocid": "4917131010040",
+	"rcid": "4917131010040",
+	"rcidh": 117,
+	"et": 10001,
+	"oet": "2025-10-07T11:29:26.48Z",
+	"cet": "2025-10-07T11:29:28.403Z",
+	"eet": "2025-10-07T11:29:28Z",
+	"ecid": -6889547673039732736,
+	"bcid": 0,
+	"bpid": 0,
+	"ret": "MOC",
+	"irr": [
+		{
+			"name": "Customer.ROP.s_OfferId",
+			"value": "200_005_0042"
+		},
+		{
+			"name": "OnTouchHandling.LogInfo",
+			"value": "0"
+		},
+		{
+			"name": "Event.FarmNodeId",
+			"value": "ocernd01-ocs3"
+		},
+		{
+			"name": "Event.ProcessId",
+			"value": "CCC_USER_49"
+		},
+		{
+			"name": "Event.ContextId",
+			"value": "a06368e4cd590000"
+		},
+		{
+			"name": "LogicProcessing.LogInfo",
+			"value": "4268,19694900"
+		},
+		{
+			"name": "wmca.Event.QuotaDimensionSize",
+			"value": "1"
+		},
+		{
+			"name": "wmca.Event.QuotaDimensionType1",
+			"value": "1"
+		},
+		{
+			"name": "wmca.Event.QuotaPrecision1",
+			"value": "10"
+		},
+		{
+			"name": "wmca.Event.QuotaScalingFactor1",
+			"value": "1"
+		},
+		{
+			"name": "wmca.Event.QuotaDimensionType2",
+			"value": "0"
+		},
+		{
+			"name": "wmca.Event.QuotaPrecision2",
+			"value": "0"
+		},
+		{
+			"name": "wmca.Event.QuotaScalingFactor2",
+			"value": "0"
+		},
+		{
+			"name": "Entry_ss7DialedNumber",
+			"value": "491716754231"
+		},
+		{
+			"name": "SS7_normalizedCalled",
+			"value": "00491716754231"
+		},
+		{
+			"name": "SS7_normalizedCaller",
+			"value": "004917131010040"
+		},
+		{
+			"name": "Event.Duration",
+			"value": "29"
+		},
+		{
+			"name": "Event.CallSetupTime",
+			"value": "12"
+		},
+		{
+			"name": "Event.Volume",
+			"value": "0"
+		},
+		{
+			"name": "Event.StopTime",
+			"value": "1759836568000"
+		},
+		{
+			"name": "wmca.EventOrigin",
+			"value": "0"
+		},
+		{
+			"name": "Customer.User.IMSI",
+			"value": ""
+		},
+		{
+			"name": "CallReferenceNumber",
+			"value": "'014b000121H'"
+		},
+		{
+			"name": "Customer.User.ServiceProviderId",
+			"value": "1"
+		},
+		{
+			"name": "SS7_isRoaming",
+			"value": "false"
+		},
+		{
+			"name": "SS7_isCF",
+			"value": "false"
+		},
+		{
+			"name": "SS7_normalizedCalledWithoutMnpPrefix",
+			"value": "00491716754231"
+		},
+		{
+			"name": "SS7_normalizedVlrNumber",
+			"value": "004998765"
+		},
+		{
+			"name": "SS7_normalizedSmsMessageCenter",
+			"value": ""
+		},
+		{
+			"name": "SS7_expandedCallKind",
+			"value": "1"
+		},
+		{
+			"name": "SS7_normalizedLocationNumberA",
+			"value": "00497005"
+		},
+		{
+			"name": "SS7_normalizedVisitedMscNumber",
+			"value": "0049172795"
+		},
+		{
+			"name": "SS7_IMSI",
+			"value": "49180000050111"
+		},
+		{
+			"name": "SS7_AccessFlag",
+			"value": "0"
+		},
+		{
+			"name": "SS7_msisdnOfSubscriber",
+			"value": "4917131010040"
+		},
+		{
+			"name": "SS7_isUCB",
+			"value": "false"
+		},
+		{
+			"name": "rating.originatorLocationInfo",
+			"value": "6070012483261000"
+		},
+		{
+			"name": "Event.LocationInfoType",
+			"value": "0"
+		},
+		{
+			"name": "rating.originatorCellId",
+			"value": "6070012483261000"
+		},
+		{
+			"name": "rating.isRoaming",
+			"value": "false"
+		},
+		{
+			"name": "rating.normalizedDestinationWithoutMnpPrefix",
+			"value": "00491716754231"
+		},
+		{
+			"name": "rating.normalizedVLR_Originator",
+			"value": "004998765"
+		},
+		{
+			"name": "rating.normalizedDestination",
+			"value": "00491716754231"
+		},
+		{
+			"name": "rating.isCF",
+			"value": "false"
+		}
+	],
+	"eri": [
+		{
+			"name": "cif",
+			"value": "0"
+		},
+		{
+			"name": "fcf",
+			"value": "0"
+		},
+		{
+			"name": "con",
+			"value": "0"
+		},
+		{
+			"name": "cuf",
+			"value": "0"
+		},
+		{
+			"name": "ctr",
+			"value": "200_005_0042"
+		},
+		{
+			"name": "ocgpa",
+			"value": "4917131010040"
+		},
+		{
+			"name": "eni",
+			"value": "4001"
+		}
+	],
+	"err": [
+		{
+			"name": "htz",
+			"value": "1"
+		},
+		{
+			"name": "GrantResult",
+			"value": "-1"
+		},
+		{
+			"name": "ChargeResult",
+			"value": "0"
+		},
+		{
+			"name": "ReasonInfo",
+			"value": "-1"
+		},
+		{
+			"name": "CallStopTime",
+			"value": "1759836568000"
+		},
+		{
+			"name": "CallDuration",
+			"value": "29"
+		},
+		{
+			"name": "TotalUsedVolume",
+			"value": "0"
+		},
+		{
+			"name": "TotalUsedQuota",
+			"value": "0"
+		},
+		{
+			"name": "cbax.BalanceName",
+			"value": "OnPeakAccountID"
+		},
+		{
+			"name": "cbax.ChargedValue",
+			"value": "50"
+		},
+		{
+			"name": "cbax.NewBalance",
+			"value": "9950"
+		},
+		{
+			"name": "cbax.ExpiryDate",
+			"value": "Fri Dec 31 23:59:59 GMT 3999"
+		},
+		{
+			"name": "cbax.CreditLimit",
+			"value": "0"
+		},
+		{
+			"name": "ccp1.ChargeCode",
+			"value": "1093001"
+		},
+		{
+			"name": "ccp1.ChargeBeginTime",
+			"value": "1759836539000"
+		},
+		{
+			"name": "ccp1.ChargedCallDuration",
+			"value": "60"
+		},
+		{
+			"name": "ccp1.UsedCallDuration",
+			"value": "29"
+		},
+		{
+			"name": "ccp1.ChargedVolume",
+			"value": "0"
+		},
+		{
+			"name": "ccp1.UsedVolume",
+			"value": "0"
+		},
+		{
+			"name": "ccp1.ChargeType",
+			"value": "2"
+		},
+		{
+			"name": "ccp1.ChargedPriceUnitType",
+			"value": "0"
+		},
+		{
+			"name": "ccp1.ChargedPrice",
+			"value": "50"
+		},
+		{
+			"name": "ccp1.TaxInfo",
+			"value": "0"
+		},
+		{
+			"name": "ccp1.TaxOfChargedPrice",
+			"value": "0"
+		}
+	]
+}
